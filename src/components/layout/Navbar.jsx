@@ -5,6 +5,7 @@ import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Magnetic } from '@/components/animations/Magnetic'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import LogoMark from '@/components/ui/LogoMark'
 import SocialLinks from '@/components/ui/SocialLinks'
 import { ResumeButton } from '@/components/ui/ResumeButton'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
@@ -69,7 +70,7 @@ function Navbar() {
           className="topbar-logo"
           title="Back to top"
         >
-          <span className="logo-mark" aria-hidden="true">RS</span>
+          <LogoMark />
           <span className="topbar-logo-text">Rajneesh Sisodia<span aria-hidden="true">.</span></span>
         </a>
 
@@ -140,7 +141,7 @@ function Navbar() {
             <SheetContent side="right" className="mobile-sidebar-sheet">
               <SheetHeader>
                 <div className="sheet-brand">
-                  <span className="logo-mark" aria-hidden="true">RS</span>
+                  <LogoMark />
                   <span className="font-mono text-[0.64rem] tracking-[0.12em] text-muted-foreground">NAV / INDEX</span>
                 </div>
                 <SheetTitle className="sr-only">{siteCopy.sidebar.mobileNavigation}</SheetTitle>
