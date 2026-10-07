@@ -40,17 +40,23 @@ function Hero() {
   const toolCount = skillGroups.reduce((total, group) => total + group.skills.length, 0)
 
   useGSAP(() => {
-    if (reducedMotion) return
-    gsap.to('.hero-type', {
-      yPercent: 12,
-      ease: 'none',
-      scrollTrigger: { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: 0.8 },
+    if (reducedMotion) return undefined
+    // Scroll drift only on tablet/desktop: on mobile the headline would slide
+    // underneath the overlapping portrait and disappear behind it.
+    const mm = gsap.matchMedia()
+    mm.add('(min-width: 768px)', () => {
+      gsap.to('.hero-type', {
+        yPercent: 12,
+        ease: 'none',
+        scrollTrigger: { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: 0.8 },
+      })
+      gsap.to('.hero-portrait', {
+        yPercent: -10,
+        ease: 'none',
+        scrollTrigger: { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: 0.8 },
+      })
     })
-    gsap.to('.hero-portrait', {
-      yPercent: -10,
-      ease: 'none',
-      scrollTrigger: { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: 0.8 },
-    })
+    return () => mm.revert()
   }, { scope: heroRef, dependencies: [reducedMotion] })
 
   const rise = (delay) => ({
