@@ -30,12 +30,6 @@ export const siteCopy = {
   marquee: {
     label: 'Toolbox marquee',
   },
-  services: {
-    eyebrow: '02 / What I do',
-    title: 'From interface to database.',
-    description:
-      'One developer across the whole stack: what you see, the logic behind it, and the data underneath.',
-  },
   about: {
     eyebrow: '01 / About',
     title: 'A developer who likes the whole picture.',
@@ -48,7 +42,7 @@ export const siteCopy = {
     copyError: 'Could not copy the profile. Select it manually.',
   },
   skills: {
-    eyebrow: '03 / Skills',
+    eyebrow: '02 / Skills',
     title: 'The stack behind the work.',
     description:
       'A practical toolkit for taking an idea from interface to data layer. Hover a node to inspect the tools I work with.',
@@ -62,14 +56,14 @@ export const siteCopy = {
     readoutIdle: 'Hover a skill',
   },
   experience: {
-    eyebrow: '04 / Experience',
+    eyebrow: '03 / Experience',
     title: 'Learning by building.',
     description:
       'Two internships gave me a place to connect interface decisions with the logic underneath them.',
     timelineNote: 'Scroll to draw the path',
   },
   projects: {
-    eyebrow: '05 / Projects',
+    eyebrow: '04 / Projects',
     title: 'Selected surfaces, not noise.',
     description:
       'A small project shelf. The portfolio build is documented here; the remaining cards are clearly marked for the work you choose to add next.',
@@ -80,12 +74,12 @@ export const siteCopy = {
     repoSoon: 'Repository coming soon — add the URL in src/data/projects.js.',
   },
   education: {
-    eyebrow: '06 / Learning',
+    eyebrow: '05 / Learning',
     title: 'Keep the fundamentals close.',
     description: 'Formal study and practical certifications, side by side.',
   },
   contact: {
-    eyebrow: '07 / Contact',
+    eyebrow: '06 / Contact',
     title: 'Have a problem worth solving?',
     description: 'The fastest way to reach me is email. The links below are the quickest routes to my public work.',
     emailLabel: 'Email',

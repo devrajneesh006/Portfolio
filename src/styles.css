@@ -551,96 +551,6 @@ canvas {
   }
 }
 
-/* ---- Services (numbered editorial rows) ---- */
-
-.service-rows {
-  display: grid;
-  margin-top: 3rem;
-}
-
-.service-row {
-  display: grid;
-  grid-template-columns: 3rem 2.5rem minmax(0, 1fr);
-  gap: 1rem;
-  align-items: start;
-  padding: 1.75rem 0.5rem;
-  border-top: 1px solid var(--border);
-  transition: background-color 200ms ease;
-}
-
-.service-row:last-child {
-  border-bottom: 1px solid var(--border);
-}
-
-.service-row:hover {
-  background: var(--surface);
-}
-
-.service-row-index {
-  padding-top: 0.2rem;
-  color: var(--muted);
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.62rem;
-}
-
-.service-row-icon {
-  display: grid;
-  width: 2.25rem;
-  height: 2.25rem;
-  place-items: center;
-  border: 1px solid var(--border);
-  border-radius: 0.6rem;
-  color: var(--accent-ink);
-  transition: border-color 200ms ease;
-}
-
-.service-row:hover .service-row-icon {
-  border-color: var(--accent);
-}
-
-.service-row-body {
-  display: grid;
-  gap: 0.4rem;
-  min-width: 0;
-}
-
-.service-row-head {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.5rem 1rem;
-}
-
-.service-row-title {
-  margin: 0;
-  color: var(--text);
-  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
-  font-weight: 600;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-}
-
-.service-row-count {
-  color: var(--accent-ink);
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.06em;
-}
-
-.service-row-blurb {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-
-.service-row-tools {
-  color: var(--text);
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.68rem;
-  line-height: 1.8;
-  overflow-wrap: anywhere;
-}
-
 .sheet-section-label,
 .contact-label,
 .subsection-label {
@@ -1847,14 +1757,6 @@ canvas {
 
   .education-row-index,
   .education-kind {
-    display: none;
-  }
-
-  .service-row {
-    grid-template-columns: 2.25rem minmax(0, 1fr);
-  }
-
-  .service-row-index {
     display: none;
   }
 

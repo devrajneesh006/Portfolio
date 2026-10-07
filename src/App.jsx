@@ -8,7 +8,6 @@ import { ScrollProgress } from '@/components/animations/ScrollProgress'
 import Hero from '@/components/sections/Hero'
 import StackMarquee from '@/components/sections/StackMarquee'
 import About from '@/components/sections/About'
-import Services from '@/components/sections/Services'
 import Skills from '@/components/sections/Skills'
 import Experience from '@/components/sections/Experience'
 import Projects from '@/components/sections/Projects'
@@ -28,7 +27,6 @@ function App() {
             <Hero />
             <StackMarquee />
             <About />
-            <Services />
             <Skills LazyScene={LazySkills} />
             <Experience />
             <Projects />
