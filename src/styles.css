@@ -288,6 +288,36 @@ canvas {
   gap: 0.6rem;
 }
 
+.topbar-socials {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.topbar-social {
+  display: grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 0.6rem;
+  color: var(--muted);
+  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease, transform 180ms ease;
+}
+
+.topbar-social:hover {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--accent-ink);
+  transform: translateY(-1px);
+}
+
+@media (min-width: 1024px) {
+  .topbar-socials {
+    display: flex;
+  }
+}
+
 .topbar-email {
   display: none;
 }

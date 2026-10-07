@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
-import { ArrowUpRight, Menu } from 'lucide-react'
+import { ArrowUpRight, Github, Linkedin, Menu } from 'lucide-react'
+import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
 import { Magnetic } from '@/components/animations/Magnetic'
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
@@ -89,6 +90,28 @@ function Navbar() {
         </nav>
 
         <div className="topbar-actions">
+          <div className="topbar-socials" role="group" aria-label="Social links">
+            {[
+              { label: 'GitHub', href: socials.github, icon: Github, placeholder: isPlaceholder(socials.github) },
+              { label: 'LinkedIn', href: socials.linkedin, icon: Linkedin, placeholder: isPlaceholder(socials.linkedin) },
+            ].map((entry) => {
+              const Icon = entry.icon
+              return (
+                <a
+                  key={entry.label}
+                  className="topbar-social"
+                  href={entry.placeholder ? '#contact' : entry.href}
+                  target={entry.placeholder ? undefined : '_blank'}
+                  rel={entry.placeholder ? undefined : 'noreferrer'}
+                  aria-label={entry.placeholder ? `${entry.label}, TODO placeholder` : `${entry.label} profile`}
+                  title={entry.placeholder ? `${entry.label} — TODO placeholder` : entry.label}
+                  onClick={entry.placeholder ? (event) => { event.preventDefault(); toast.info(siteCopy.contact.socialTodo) } : undefined}
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </a>
+              )
+            })}
+          </div>
           <Magnetic className="topbar-email">
             <Button
               size="sm"
