@@ -1,6 +1,6 @@
 export const socials = {
-  email: 'TODO_email',
-  github: 'TODO_github_url',
+  email: 'princeraj93193@gmail.com',
+  github: 'https://github.com/devrajneesh006',
   linkedin: 'TODO_linkedin_url',
 }
 
