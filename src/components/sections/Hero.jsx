@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { motion } from 'motion/react'
-import { ArrowDown, ArrowUpRight, Hand } from 'lucide-react'
+import { ArrowUpRight, Hand } from 'lucide-react'
 import { gsap, useGSAP } from '@/lib/gsap'
 import { Magnetic } from '@/components/animations/Magnetic'
 import { Button } from '@/components/ui/button'
@@ -80,18 +80,6 @@ function Hero() {
             <Portrait />
           </motion.div>
 
-          <motion.div className="hero-arrow" {...rise(0.3)}>
-            <Magnetic>
-              <button
-                type="button"
-                className="hero-arrow-button"
-                onClick={() => scrollTo('#projects')}
-                aria-label="Scroll to selected work"
-              >
-                <ArrowDown className="h-5 w-5" aria-hidden="true" />
-              </button>
-            </Magnetic>
-          </motion.div>
         </div>
 
         <motion.p className="hero-location" {...rise(0.34)}>
