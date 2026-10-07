@@ -1,4 +1,4 @@
-import { ArrowUpRight, Info, Mail } from 'lucide-react'
+import { ArrowUpRight, Mail } from 'lucide-react'
 import { toast } from 'sonner'
 import { Reveal } from '@/components/animations/Reveal'
 import { SectionHeading } from '@/components/animations/SectionHeading'
@@ -39,15 +39,8 @@ function Contact() {
               <span className="contact-label">{siteCopy.contact.socialsLabel}</span>
               <div className="contact-row-body">
                 <SocialLinks />
-                <p className="placeholder-note">
-                  <Info className="h-4 w-4" aria-hidden="true" />
-                  <span>{siteCopy.contact.placeholderNotice}</span>
-                </p>
               </div>
             </div>
-            {emailPlaceholder ? (
-              <p className="contact-footnote">TODO: add the public email in src/data/socials.js.</p>
-            ) : null}
           </div>
         </Reveal>
       </div>

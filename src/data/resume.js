@@ -1,7 +1,5 @@
 export const resume = {
   name: 'Rajneesh Sisodia',
-  firstName: 'Rajneesh',
-  lastName: 'Sisodia',
   role: 'Full Stack Developer',
   focus: 'Full-stack web development',
   location: {
@@ -50,7 +48,7 @@ export const resume = {
   ],
   download: {
     path: '/resume.pdf',
-    available: false,
+    available: true,
   },
   certificates: [
     {

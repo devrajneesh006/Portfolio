@@ -1,21 +1,15 @@
 import { motion } from 'motion/react'
 import { ArrowUpRight, Github } from 'lucide-react'
-import { toast } from 'sonner'
 import { SectionHeading } from '@/components/animations/SectionHeading'
 import { Badge } from '@/components/ui/badge'
 import { projects } from '@/data/projects'
 import { siteCopy } from '@/data/siteCopy'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-import { isPlaceholder } from '@/data/socials'
-import { cn } from '@/lib/utils'
 
 function ProjectCard({ project, index, reducedMotion }) {
-  const livePlaceholder = isPlaceholder(project.liveUrl)
-  const repoPlaceholder = isPlaceholder(project.repoUrl)
-
   return (
     <motion.article
-      className={cn('project-card', project.isPlaceholder && 'project-card--placeholder')}
+      className="project-card"
       aria-label={project.title}
       initial={reducedMotion ? false : { opacity: 0, y: 26, filter: 'blur(6px)' }}
       whileInView={reducedMotion ? undefined : { opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -23,21 +17,15 @@ function ProjectCard({ project, index, reducedMotion }) {
       transition={{ duration: 0.6, delay: (index % 2) * 0.08, ease: [0.22, 1, 0.36, 1] }}
       whileHover={reducedMotion ? undefined : { y: -5 }}
     >
-      {project.image && !project.isPlaceholder ? (
+      {project.image ? (
         <div className="project-visual img-zoom" aria-hidden="true">
           <img src={project.image} alt="" loading="lazy" />
         </div>
-      ) : (
-        <div className="project-visual project-visual--empty" aria-hidden="true">
-          <span>TODO</span>
-        </div>
-      )}
+      ) : null}
       <div className="project-body">
         <div className="project-meta">
           <span className="project-index">0{index + 1} / {String(projects.length).padStart(2, '0')}</span>
-          {project.isPlaceholder
-            ? <Badge variant="muted">{siteCopy.projects.placeholderLabel}</Badge>
-            : <Badge>{project.type}</Badge>}
+          <Badge>{project.type}</Badge>
         </div>
         <h3 className="project-title">{project.title}</h3>
         <p className="project-description">{project.description}</p>
@@ -49,22 +37,20 @@ function ProjectCard({ project, index, reducedMotion }) {
         <div className="project-links">
           <a
             className="project-link"
-            href={livePlaceholder ? '#contact' : project.liveUrl}
-            target={livePlaceholder ? undefined : '_blank'}
-            rel={livePlaceholder ? undefined : 'noreferrer'}
-            aria-label={livePlaceholder ? 'Live demo link, TODO placeholder' : `Open ${project.title} live demo`}
-            onClick={livePlaceholder ? (event) => { event.preventDefault(); toast.info(siteCopy.projects.liveSoon) } : undefined}
+            href={project.liveUrl}
+            target={project.liveUrl.startsWith('http') ? '_blank' : undefined}
+            rel={project.liveUrl.startsWith('http') ? 'noreferrer' : undefined}
+            aria-label={`Open ${project.title} live demo`}
           >
             {siteCopy.projects.live}
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
           </a>
           <a
             className="project-link"
-            href={repoPlaceholder ? '#contact' : project.repoUrl}
-            target={repoPlaceholder ? undefined : '_blank'}
-            rel={repoPlaceholder ? undefined : 'noreferrer'}
-            aria-label={repoPlaceholder ? 'Repository link, TODO placeholder' : `Open ${project.title} repository`}
-            onClick={repoPlaceholder ? (event) => { event.preventDefault(); toast.info(siteCopy.projects.repoSoon) } : undefined}
+            href={project.repoUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`Open ${project.title} repository`}
           >
             {siteCopy.projects.repo}
             <Github className="h-3.5 w-3.5" aria-hidden="true" />

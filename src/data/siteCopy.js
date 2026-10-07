@@ -10,12 +10,8 @@ export const siteCopy = {
   },
   sidebar: {
     availability: 'Open to work',
-    details: 'Details',
     resume: 'Download Resume',
-    resumeTodo: 'TODO: add public/resume.pdf',
-    navigation: 'Resume navigation',
     mobileNavigation: 'Mobile navigation',
-    footer: '© Rajneesh Sisodia',
   },
   hero: {
     greeting: 'Hello, my name is Rajneesh Sisodia and I am a',
@@ -35,8 +31,6 @@ export const siteCopy = {
     title: 'A developer who likes the whole picture.',
     description:
       'I am a junior full-stack developer working across the layers that make a web product feel complete. My focus is clear, responsive interfaces built with modern front-end tools and dependable back-end foundations.',
-    panelTitle: 'At a glance',
-    panelNote: 'A compact snapshot of where I am and what I am learning.',
     copyJson: 'Copy profile JSON',
     copiedJson: 'Profile details copied',
     copyError: 'Could not copy the profile. Select it manually.',
@@ -45,9 +39,7 @@ export const siteCopy = {
     eyebrow: '02 / Skills',
     title: 'The stack behind the work.',
     description:
-      'A practical toolkit for taking an idea from interface to data layer. Hover a node to inspect the tools I work with.',
-    mapLabel: 'Full-stack map',
-    mapCaption: 'Three layers, one connected workflow.',
+      'A practical toolkit for taking an idea from interface to data layer. Hover a row to inspect the tools I work with.',
     overviewLabel: 'Toolkit overview',
     overviewCopy: 'A clearer view of the tools behind the interface, logic, and data layers.',
     indexTitle: 'Skill index',
@@ -64,14 +56,11 @@ export const siteCopy = {
   },
   projects: {
     eyebrow: '04 / Projects',
-    title: 'Selected surfaces, not noise.',
+    title: 'Selected work.',
     description:
-      'A small project shelf. The portfolio build is documented here; the remaining cards are clearly marked for the work you choose to add next.',
+      'A shelf for things I have built and shipped. More builds land here as they are finished.',
     live: 'Live',
     repo: 'Repo',
-    placeholderLabel: 'TODO placeholder',
-    liveSoon: 'Live demo coming soon — add the URL in src/data/projects.js.',
-    repoSoon: 'Repository coming soon — add the URL in src/data/projects.js.',
   },
   education: {
     eyebrow: '05 / Learning',
@@ -87,9 +76,7 @@ export const siteCopy = {
     copied: 'Email copied to clipboard',
     copyError: 'Could not copy the email. Select it manually.',
     emailTodo: 'Email address not added yet — see src/data/socials.js.',
-    socialTodo: 'This link is not added yet — see src/data/socials.js.',
     socialsLabel: 'Elsewhere',
-    placeholderNotice: 'Add your public links in src/data/socials.js.',
   },
   footer: {
     builtWith: ['React', 'Vite', 'Tailwind'],

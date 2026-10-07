@@ -17,55 +17,8 @@
   --color-accent-contrast: var(--accent-contrast);
 }
 
-/* Theme editing: change these token values here; components consume the tokens, not hardcoded colors. */
+/* Theme: single light theme. Edit these token values to recolor the whole site. */
 :root {
-  color-scheme: dark;
-  --bg: #fafaf9;
-  --surface: #ffffff;
-  --surface-2: #f1f1ef;
-  --border: #e4e4e0;
-  --text: #0a0a0b;
-  --muted: #52525b;
-  --accent: #ea580c;
-  --accent-2: #0a0a0b;
-  --accent-ink: #9a3412;
-  --accent-contrast: #0a0a0b;
-  --status: #16803c;
-  --scheme: light;
-}
-/* :root {
-  color-scheme: dark;
-  --bg: #0a0a0b;
-  --surface: #141416;
-  --surface-2: #1c1c20;
-  --border: #2a2a2f;
-  --text: #f5f5f4;
-  --muted: #a1a1aa;
-  --accent: #ff6b1a;
-  --accent-2: #c9cdd3;
-  --accent-ink: #ffad7c;
-  --accent-contrast: #160b04;
-  --status: #55d98a;
-  --scheme: dark;
-} */
-
-html[data-theme="chrome"] {
-  color-scheme: dark;
-  --bg: #0e0f11;
-  --surface: #16181b;
-  --surface-2: #1e2126;
-  --border: #2c3036;
-  --text: #ffffff;
-  --muted: #9aa0a6;
-  --accent: #e5e7eb;
-  --accent-2: #7dd3fc;
-  --accent-ink: #ffffff;
-  --accent-contrast: #0e0f11;
-  --status: #55d98a;
-  --scheme: dark;
-}
-
-html[data-theme="paper"] {
   color-scheme: light;
   --bg: #fafaf9;
   --surface: #ffffff;
@@ -78,23 +31,6 @@ html[data-theme="paper"] {
   --accent-ink: #9a3412;
   --accent-contrast: #0a0a0b;
   --status: #16803c;
-  --scheme: light;
-}
-
-html[data-theme="gold"] {
-  color-scheme: dark;
-  --bg: #0b0a08;
-  --surface: #15130f;
-  --surface-2: #1e1b15;
-  --border: #2e2a20;
-  --text: #faf7f0;
-  --muted: #a8a190;
-  --accent: #d4af37;
-  --accent-2: #e7e5e4;
-  --accent-ink: #f4d77b;
-  --accent-contrast: #0b0a08;
-  --status: #55d98a;
-  --scheme: dark;
 }
 
 * {
@@ -640,14 +576,16 @@ canvas {
   font-size: clamp(1.35rem, 2.4vw, 1.7rem);
   font-weight: 600;
   letter-spacing: -0.04em;
-  line-height: 1.05;
+  line-height: 1.1;
+  text-wrap: balance;
 }
 
 .project-description {
+  max-width: 32rem;
   margin-top: 0.6rem;
   color: var(--muted);
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 .project-stack {
@@ -729,61 +667,6 @@ canvas {
   background: var(--surface-2);
   color: var(--accent-ink);
   transform: translateY(-1px);
-}
-
-.social-link small {
-  color: var(--muted);
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.58rem;
-}
-
-.resume-nav {
-  display: grid;
-  gap: 0.15rem;
-}
-
-.resume-nav__link {
-  display: grid;
-  grid-template-columns: 1.5rem minmax(0, 1fr) 0.4rem;
-  min-height: 2.55rem;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.45rem 0.5rem;
-  border: 1px solid transparent;
-  border-radius: 0.65rem;
-  color: var(--muted);
-  font-size: 0.79rem;
-  transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
-}
-
-.resume-nav__link:hover,
-.resume-nav__link[data-active="true"] {
-  border-color: var(--border);
-  background: var(--surface);
-  color: var(--text);
-}
-
-.resume-nav__index {
-  color: var(--muted);
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.59rem;
-}
-
-.resume-nav__dot {
-  width: 0.35rem;
-  height: 0.35rem;
-  border-radius: 999px;
-  background: transparent;
-  transition: background-color 180ms ease, box-shadow 180ms ease;
-}
-
-.resume-nav__link[data-active="true"] .resume-nav__dot {
-  background: var(--accent);
-  box-shadow: 0 0 12px color-mix(in srgb, var(--accent) 75%, transparent);
-}
-
-.resume-nav__link[data-active="true"] .resume-nav__index {
-  color: var(--accent-ink);
 }
 
 .resume-download {
@@ -894,10 +777,6 @@ canvas {
   scroll-margin-top: 6rem;
 }
 
-.document-section:first-child {
-  padding-top: 1.5rem;
-}
-
 .document-section + .document-section {
   border-top: 1px solid var(--border);
 }
@@ -929,7 +808,12 @@ canvas {
   font-size: clamp(2.35rem, 5vw, 4.35rem);
   font-weight: 600;
   letter-spacing: -0.075em;
-  line-height: 0.98;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
 }
 
 .document-section h2 + p,
@@ -1128,12 +1012,6 @@ canvas {
   height: 100% !important;
 }
 
-.scene-skeleton {
-  position: absolute;
-  inset: 0;
-  background: color-mix(in srgb, var(--accent) 7%, var(--surface));
-}
-
 .skills-active-readout {
   display: flex;
   min-height: 2.5rem;
@@ -1156,26 +1034,6 @@ canvas {
   color: var(--accent-ink);
 }
 
-.skill-chip {
-  display: inline-flex;
-  min-height: 1.8rem;
-  align-items: center;
-  padding: 0.3rem 0.5rem;
-  border: 1px solid var(--border);
-  border-radius: 0.45rem;
-  background: var(--surface-2);
-  color: var(--text);
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.61rem;
-  transition: border-color 180ms ease, color 180ms ease, transform 180ms ease;
-}
-
-.skill-chip:hover {
-  border-color: var(--accent);
-  color: var(--accent-ink);
-  transform: translateY(-1px);
-}
-
 .skills-showpiece {
   max-width: 900px;
   margin: 3.25rem auto 0;
@@ -1194,9 +1052,10 @@ canvas {
 }
 
 .skills-intro-copy {
+  max-width: 46rem;
   color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.55;
+  font-size: 0.85rem;
+  line-height: 1.65;
 }
 
 .skills-orb {
@@ -1462,6 +1321,7 @@ canvas {
   font-size: clamp(1.4rem, 2.8vw, 1.9rem);
   font-weight: 600;
   letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 .timeline-role {
@@ -1473,7 +1333,7 @@ canvas {
 .timeline-bullets {
   display: grid;
   gap: 0.6rem;
-  max-width: 42rem;
+  max-width: 36rem;
   margin-top: 1.2rem;
 }
 
@@ -1481,8 +1341,8 @@ canvas {
   display: flex;
   gap: 0.65rem;
   color: var(--text);
-  font-size: 0.88rem;
-  line-height: 1.65;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
 .timeline-bullet::before {
@@ -1493,11 +1353,6 @@ canvas {
   border-radius: 999px;
   background: var(--accent);
   content: "";
-}
-
-.timeline-placeholder {
-  color: var(--muted);
-  font-style: italic;
 }
 
 .education-list {
@@ -1565,12 +1420,14 @@ canvas {
   font-size: 1.05rem;
   font-weight: 600;
   letter-spacing: -0.03em;
+  text-wrap: balance;
 }
 
 .education-detail {
   margin: 0;
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 
 /* ---- Contact (aligned spec-sheet panel) ---- */
@@ -1756,16 +1613,6 @@ canvas {
   gap: 0.65rem;
 }
 
-.resume-nav--mobile {
-  margin-top: 1.4rem;
-}
-
-.resume-nav--mobile .resume-nav__link {
-  min-height: 3rem;
-  grid-template-columns: 1.6rem minmax(0, 1fr) 0.4rem;
-  font-size: 0.9rem;
-}
-
 .sheet-section-label {
   margin-top: 1.8rem;
 }
@@ -1862,7 +1709,6 @@ canvas {
     width: min(240px, 68vw);
   }
 
-  .hero-actions .btn,
   .hero-actions button,
   .hero-actions a {
     flex: 1 1 100%;
@@ -1952,35 +1798,12 @@ canvas {
   transform: scale(1.04);
 }
 
-/* Sliding active pill for sidebar nav (transitions.dev tabs pattern). */
-.resume-nav__link {
-  position: relative;
-  isolation: isolate;
-}
-
-.resume-nav__pill {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border: 1px solid var(--border);
-  border-radius: 0.65rem;
-  background: var(--surface);
-  box-shadow: 0 8px 24px color-mix(in srgb, var(--bg) 60%, transparent);
-}
-
-.resume-nav__label {
-  position: relative;
-  z-index: 1;
-}
-
-/* Skeleton shimmer for lazy 3D / images (transitions.dev skeleton reveal). */
-.scene-skeleton,
+/* Skeleton shimmer for the lazy 3D orb (transitions.dev skeleton reveal). */
 .skills-orb-fallback {
   position: relative;
   overflow: hidden;
 }
 
-.scene-skeleton::after,
 .skills-orb-fallback::after {
   position: absolute;
   inset: 0;

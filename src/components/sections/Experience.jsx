@@ -3,12 +3,9 @@ import { gsap, useGSAP } from '@/lib/gsap'
 import { Reveal } from '@/components/animations/Reveal'
 import { SectionHeading } from '@/components/animations/SectionHeading'
 import { resume } from '@/data/resume'
+import { isPlaceholder } from '@/data/socials'
 import { siteCopy } from '@/data/siteCopy'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
-
-function isPlaceholder(value) {
-  return typeof value !== 'string' || value.startsWith('TODO_') || !value.trim()
-}
 
 function Experience() {
   const timelineRef = useRef(null)
@@ -69,27 +66,30 @@ function Experience() {
             <div className="timeline-line-progress" />
           </div>
           <div className="timeline-list">
-            {resume.experience.map((experience, index) => (
-              <article className="timeline-entry" key={experience.company}>
-                <span className="timeline-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-                <div className="timeline-body">
-                  <p className={`timeline-period${isPlaceholder(experience.period) ? ' timeline-placeholder' : ''}`}>
-                    {isPlaceholder(experience.period) ? 'Dates to confirm' : experience.period}
-                  </p>
-                  <h3 className="timeline-title">{experience.company}</h3>
-                  <p className="timeline-role">{experience.role}</p>
-                  <ul className="timeline-bullets">
-                    {experience.bullets.map((bullet, bulletIndex) => (
-                      <li className="timeline-bullet" key={`${experience.company}-${bulletIndex}`}>
-                        <span className={isPlaceholder(bullet) ? 'timeline-placeholder' : ''}>
-                          {isPlaceholder(bullet) ? 'TODO: add a verified responsibility from the resume.' : bullet}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
+            {resume.experience.map((experience, index) => {
+              const bullets = (experience.bullets || []).filter((bullet) => !isPlaceholder(bullet))
+              return (
+                <article className="timeline-entry" key={experience.company}>
+                  <span className="timeline-index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                  <div className="timeline-body">
+                    {!isPlaceholder(experience.period) ? (
+                      <p className="timeline-period">{experience.period}</p>
+                    ) : null}
+                    <h3 className="timeline-title">{experience.company}</h3>
+                    <p className="timeline-role">{experience.role}</p>
+                    {bullets.length ? (
+                      <ul className="timeline-bullets">
+                        {bullets.map((bullet, bulletIndex) => (
+                          <li className="timeline-bullet" key={`${experience.company}-${bulletIndex}`}>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </div>
         <Reveal className="mt-10 flex items-center gap-3 font-mono text-[0.64rem] uppercase tracking-[0.1em] text-muted-foreground">

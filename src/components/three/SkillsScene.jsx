@@ -1,8 +1,7 @@
 import { Float, MeshDistortMaterial, OrbitControls } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { SceneCanvas } from '@/components/providers/SceneCanvas'
-import { useTheme } from '@/hooks/useTheme'
 
 const layerNodes = [
   { label: 'Frontend', position: [1.35, 0.5, 0.1] },
@@ -103,14 +102,8 @@ function SkillsSceneContent({ accent, secondary, onActiveSkill }) {
 }
 
 function SkillsScene({ onActiveSkill = () => {} }) {
-  const { theme } = useTheme()
-  const [accent, setAccent] = useState(() => readThemeColor('--accent', '#FF6B1A'))
-  const [secondary, setSecondary] = useState(() => readThemeColor('--accent-2', '#C9CDD3'))
-
-  useEffect(() => {
-    setAccent(readThemeColor('--accent', '#FF6B1A'))
-    setSecondary(readThemeColor('--accent-2', '#C9CDD3'))
-  }, [theme])
+  const [accent] = useState(() => readThemeColor('--accent', '#EA580C'))
+  const [secondary] = useState(() => readThemeColor('--accent-2', '#0A0A0B'))
 
   return (
     <SceneCanvas

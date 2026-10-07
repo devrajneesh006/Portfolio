@@ -1,0 +1,6 @@
+# Treat PDFs and images as binary so line-ending conversion never corrupts them.
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.svg text eol=lf
