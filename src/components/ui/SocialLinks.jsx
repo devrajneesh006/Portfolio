@@ -1,5 +1,7 @@
 import { Github, Linkedin, Mail, ArrowUpRight } from 'lucide-react'
+import { toast } from 'sonner'
 import { socials, isPlaceholder } from '@/data/socials'
+import { siteCopy } from '@/data/siteCopy'
 
 const entries = [
   { label: 'GitHub', href: socials.github, icon: Github, placeholder: isPlaceholder(socials.github) },
@@ -8,6 +10,11 @@ const entries = [
 ]
 
 function SocialLinks() {
+  const handlePlaceholder = (event) => {
+    event.preventDefault()
+    toast.info(siteCopy.contact.socialTodo)
+  }
+
   return (
     <div className="social-links" role="group" aria-label="Social links">
       {entries.map((entry) => {
@@ -21,6 +28,7 @@ function SocialLinks() {
             target={entry.placeholder || entry.email ? undefined : '_blank'}
             rel={entry.placeholder || entry.email ? undefined : 'noreferrer'}
             title={entry.placeholder ? `${entry.label} — TODO placeholder` : entry.label}
+            onClick={entry.placeholder ? handlePlaceholder : undefined}
           >
             <Icon className="h-4 w-4" aria-hidden="true" />
             <span>{entry.label}</span>

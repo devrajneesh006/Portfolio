@@ -143,8 +143,18 @@ function Navbar() {
                     </motion.a>
                   ))}
                 </AnimatePresence>
-                <Button className="mt-8 w-full" asChild>
-                  <a href={`mailto:${socials.email}`}>
+                <Button
+                  className="mt-8 w-full"
+                  onClick={(event) => {
+                    if (isPlaceholder(socials.email)) {
+                      event.preventDefault()
+                      setMenuOpen(false)
+                      scrollTo('#contact')
+                    }
+                  }}
+                  asChild
+                >
+                  <a href={isPlaceholder(socials.email) ? '#contact' : `mailto:${socials.email}`}>
                     {siteCopy.nav.contact}
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                   </a>

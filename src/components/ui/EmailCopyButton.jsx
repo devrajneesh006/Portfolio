@@ -2,13 +2,17 @@ import { useState } from 'react'
 import { Check, Copy } from 'lucide-react'
 import { toast } from 'sonner'
 import { Button } from '@/components/ui/button'
-import { socials } from '@/data/socials'
+import { isPlaceholder, socials } from '@/data/socials'
 import { siteCopy } from '@/data/siteCopy'
 
 function EmailCopyButton() {
   const [copied, setCopied] = useState(false)
 
   const copyEmail = async () => {
+    if (isPlaceholder(socials.email)) {
+      toast.info(siteCopy.contact.emailTodo)
+      return
+    }
     try {
       if (navigator.clipboard?.writeText) {
         try {

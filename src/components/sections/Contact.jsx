@@ -1,4 +1,5 @@
 import { ArrowUpRight, Info, Mail } from 'lucide-react'
+import { toast } from 'sonner'
 import { Reveal } from '@/components/animations/Reveal'
 import { SectionHeading } from '@/components/animations/SectionHeading'
 import { Magnetic } from '@/components/animations/Magnetic'
@@ -26,6 +27,7 @@ function Contact() {
             <a
               className="contact-email contact-email--big"
               href={`mailto:${socials.email}`}
+              onClick={emailPlaceholder ? (event) => { event.preventDefault(); toast.info(siteCopy.contact.emailTodo) } : undefined}
             >
               <Mail className="h-5 w-5 shrink-0" aria-hidden="true" />
               <span>{socials.email}</span>

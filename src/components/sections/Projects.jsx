@@ -1,5 +1,6 @@
 import { motion } from 'motion/react'
 import { ArrowUpRight, Github } from 'lucide-react'
+import { toast } from 'sonner'
 import { SectionHeading } from '@/components/animations/SectionHeading'
 import { Badge } from '@/components/ui/badge'
 import { projects } from '@/data/projects'
@@ -52,6 +53,7 @@ function ProjectCard({ project, index, reducedMotion }) {
             target={livePlaceholder ? undefined : '_blank'}
             rel={livePlaceholder ? undefined : 'noreferrer'}
             aria-label={livePlaceholder ? 'Live demo link, TODO placeholder' : `Open ${project.title} live demo`}
+            onClick={livePlaceholder ? (event) => { event.preventDefault(); toast.info(siteCopy.projects.liveSoon) } : undefined}
           >
             {siteCopy.projects.live}
             <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -62,6 +64,7 @@ function ProjectCard({ project, index, reducedMotion }) {
             target={repoPlaceholder ? undefined : '_blank'}
             rel={repoPlaceholder ? undefined : 'noreferrer'}
             aria-label={repoPlaceholder ? 'Repository link, TODO placeholder' : `Open ${project.title} repository`}
+            onClick={repoPlaceholder ? (event) => { event.preventDefault(); toast.info(siteCopy.projects.repoSoon) } : undefined}
           >
             {siteCopy.projects.repo}
             <Github className="h-3.5 w-3.5" aria-hidden="true" />

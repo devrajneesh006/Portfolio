@@ -76,6 +76,8 @@ export const siteCopy = {
     live: 'Live',
     repo: 'Repo',
     placeholderLabel: 'TODO placeholder',
+    liveSoon: 'Live demo coming soon — add the URL in src/data/projects.js.',
+    repoSoon: 'Repository coming soon — add the URL in src/data/projects.js.',
   },
   education: {
     eyebrow: '06 / Learning',
@@ -90,6 +92,8 @@ export const siteCopy = {
     copyEmail: 'Copy email',
     copied: 'Email copied to clipboard',
     copyError: 'Could not copy the email. Select it manually.',
+    emailTodo: 'Email address not added yet — see src/data/socials.js.',
+    socialTodo: 'This link is not added yet — see src/data/socials.js.',
     socialsLabel: 'Elsewhere',
     placeholderNotice: 'Add your public links in src/data/socials.js.',
   },
