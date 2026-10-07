@@ -23,7 +23,7 @@ function Portrait() {
         </span>
       ) : (
         <img
-          src="/avatar.jpg"
+          src="/main.jpeg"
           alt="Portrait of Rajneesh Sisodia"
           className="hero-portrait-image"
           onError={() => setImageFailed(true)}

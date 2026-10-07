@@ -1403,24 +1403,23 @@ canvas {
 
 .skill-rows {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
   margin: 0;
   padding: 0;
   list-style: none;
+  background: var(--border);
 }
 
 .skill-row {
   display: grid;
-  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
-  gap: 1rem;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  gap: 0.75rem;
   align-items: center;
-  padding: 0.9rem 1.25rem;
-  border-top: 1px solid var(--border);
+  padding: 0.8rem 1rem;
+  background: var(--surface);
   outline-offset: -2px;
   transition: background-color 180ms ease;
-}
-
-.skill-row:first-child {
-  border-top: 0;
 }
 
 .skill-row:hover,
@@ -1435,10 +1434,13 @@ canvas {
 }
 
 .skill-row-name {
+  overflow: hidden;
   color: var(--text);
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   font-weight: 500;
   letter-spacing: -0.02em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .skill-row:hover .skill-row-name {
@@ -1861,6 +1863,10 @@ canvas {
   .service-row-index {
     display: none;
   }
+
+  .skill-rows {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 767px) {
@@ -1900,9 +1906,8 @@ canvas {
     height: 8rem;
   }
 
-  .skill-row {
-    grid-template-columns: 2rem minmax(0, 1fr) auto;
-    padding: 0.8rem 1rem;
+  .skill-rows {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .education-list {
