@@ -4,6 +4,7 @@ import { ArrowUpRight, Hand } from 'lucide-react'
 import { gsap, useGSAP } from '@/lib/gsap'
 import { Magnetic } from '@/components/animations/Magnetic'
 import { Button } from '@/components/ui/button'
+import { useIsMobile } from '@/hooks/useIsMobile'
 import { useReducedMotion } from '@/hooks/useReducedMotion'
 import { useSmoothScroll } from '@/components/providers/SmoothScroll'
 import { resume, skillGroups } from '@/data/resume'
@@ -36,6 +37,7 @@ function Portrait() {
 function Hero() {
   const heroRef = useRef(null)
   const reducedMotion = useReducedMotion()
+  const isMobile = useIsMobile()
   const { scrollTo } = useSmoothScroll()
   const toolCount = skillGroups.reduce((total, group) => total + group.skills.length, 0)
 
@@ -59,8 +61,8 @@ function Hero() {
     return () => mm.revert()
   }, { scope: heroRef, dependencies: [reducedMotion] })
 
-  const rise = (delay) => ({
-    initial: reducedMotion ? false : { opacity: 0, y: 44, filter: 'blur(8px)' },
+  const rise = (delay, y = 44) => ({
+    initial: reducedMotion ? false : { opacity: 0, y, filter: 'blur(8px)' },
     animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
     transition: { duration: 0.9, delay, ease },
   })
@@ -74,7 +76,7 @@ function Hero() {
         </motion.p>
 
         <div className="hero-stage">
-          <motion.h1 id="hero-heading" className="hero-type" {...rise(0.1)}>
+          <motion.h1 id="hero-heading" className="hero-type" {...rise(0.1, isMobile ? 0 : 44)}>
             <span className="sr-only">{resume.name}, </span>
             <span className="hero-line hero-line-solid" aria-hidden="true">{siteCopy.hero.lineSolid}</span>
             <span className="hero-line hero-line-outline" aria-hidden="true">
