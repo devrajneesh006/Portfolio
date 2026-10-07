@@ -1,0 +1,101 @@
+export const siteCopy = {
+  nav: {
+    about: 'About',
+    skills: 'Skills',
+    experience: 'Experience',
+    projects: 'Projects',
+    education: 'Education',
+    contact: 'Contact',
+    openMenu: 'Open navigation menu',
+  },
+  sidebar: {
+    availability: 'Open to work',
+    details: 'Details',
+    resume: 'Download Resume',
+    resumeTodo: 'TODO: add public/resume.pdf',
+    navigation: 'Resume navigation',
+    mobileNavigation: 'Mobile navigation',
+    footer: '© Rajneesh Sisodia',
+  },
+  hero: {
+    greeting: 'Hello, my name is Rajneesh Sisodia and I am a',
+    lineSolid: 'Full Stack',
+    lineOutline: 'Developer',
+    location: 'based in Delhi, India.',
+    viewWork: 'View work',
+    contact: 'Get in touch',
+    scroll: 'Scroll to explore',
+    stats: 'Technologies · internships · layers',
+  },
+  marquee: {
+    label: 'Toolbox marquee',
+  },
+  services: {
+    eyebrow: '02 / What I do',
+    title: 'From interface to database.',
+    description:
+      'One developer across the whole stack: what you see, the logic behind it, and the data underneath.',
+  },
+  about: {
+    eyebrow: '01 / About',
+    title: 'A developer who likes the whole picture.',
+    description:
+      'I am a junior full-stack developer working across the layers that make a web product feel complete. My focus is clear, responsive interfaces built with modern front-end tools and dependable back-end foundations.',
+    panelTitle: 'At a glance',
+    panelNote: 'A compact snapshot of where I am and what I am learning.',
+    copyJson: 'Copy profile JSON',
+    copiedJson: 'Profile details copied',
+    copyError: 'Could not copy the profile. Select it manually.',
+  },
+  skills: {
+    eyebrow: '03 / Skills',
+    title: 'The stack behind the work.',
+    description:
+      'A practical toolkit for taking an idea from interface to data layer. Hover a node to inspect the tools I work with.',
+    mapLabel: 'Full-stack map',
+    mapCaption: 'Three layers, one connected workflow.',
+    overviewLabel: 'Toolkit overview',
+    overviewCopy: 'A clearer view of the tools behind the interface, logic, and data layers.',
+    indexTitle: 'Skill index',
+    filterLabel: 'Filter by layer',
+    filterAll: 'All',
+    readoutIdle: 'Hover a skill',
+  },
+  experience: {
+    eyebrow: '04 / Experience',
+    title: 'Learning by building.',
+    description:
+      'Two internships gave me a place to connect interface decisions with the logic underneath them.',
+    timelineNote: 'Scroll to draw the path',
+  },
+  projects: {
+    eyebrow: '05 / Projects',
+    title: 'Selected surfaces, not noise.',
+    description:
+      'A small project shelf. The portfolio build is documented here; the remaining cards are clearly marked for the work you choose to add next.',
+    live: 'Live',
+    repo: 'Repo',
+    placeholderLabel: 'TODO placeholder',
+  },
+  education: {
+    eyebrow: '06 / Learning',
+    title: 'Keep the fundamentals close.',
+    description: 'Formal study and practical certifications, side by side.',
+  },
+  contact: {
+    eyebrow: '07 / Contact',
+    title: 'Have a problem worth solving?',
+    description: 'The fastest way to reach me is email. The links below are the quickest routes to my public work.',
+    emailLabel: 'Email',
+    copyEmail: 'Copy email',
+    copied: 'Email copied to clipboard',
+    copyError: 'Could not copy the email. Select it manually.',
+    socialsLabel: 'Elsewhere',
+    placeholderNotice: 'Add your public links in src/data/socials.js.',
+  },
+  footer: {
+    builtWith: ['React', 'Vite', 'Tailwind'],
+    builtLabel: 'Built with',
+    top: 'Back to top',
+  },
+}
